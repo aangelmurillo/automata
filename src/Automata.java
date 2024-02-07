@@ -151,13 +151,23 @@ public class Automata {
                             if (Arrays.asList(consonantes).contains(cadenaArray[2])
                                     || Arrays.asList(vocales).contains(cadenaArray[2])) {
                                 System.out.println("Cadena invalida " + cadena);
+                                return;
                             }
-                            else {
+                            if (Arrays.asList(vocales).contains(cadenaArray[0])
+                                    && Arrays.asList(consonantes).contains(cadenaArray[i + 1])) {
                                 System.out.println("Cadena valida con " + cadena);
-
+                                return;
+                            } else {
+                                System.out.println("Cadena invalida " + cadena);
                             }
-                        } else {
-                            System.out.println("Cadena valida con " + cadena);
+
+                            if (Arrays.asList(consonantes).contains(cadenaArray[0])
+                                    && Arrays.asList(vocales).contains(cadenaArray[i + 1])) {
+                                System.out.println("Cadena valida con " + cadena);
+                                return;
+                            } else {
+                                System.out.println("Cadena invalida " + cadena);
+                            }
                         }
                         activo = false;
                         break;
