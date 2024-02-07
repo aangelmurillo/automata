@@ -109,6 +109,13 @@ public class Automata {
                                             .println("Estoy en el estado 5, voy al estado " + estado + " con..."
                                                     + cadenaArray[i + 1] + "... posicion: " + i);
                                 }
+
+                                if (Arrays.asList(vocales).contains(cadenaArray[i + 1])) {
+                                    estado = 7;
+                                    System.out
+                                            .println("Estoy en el estado 5, voy al estado " + estado + " con..."
+                                                    + cadenaArray[i + 1] + "... posicion: " + i);
+                                }
                             } else if (Arrays.asList(digitos).contains(cadenaArray[i])) {
 
                                 estado = 5;
@@ -143,14 +150,14 @@ public class Automata {
                         if (cadenaArray.length >= 3) {
                             if (Arrays.asList(consonantes).contains(cadenaArray[2])
                                     || Arrays.asList(vocales).contains(cadenaArray[2])) {
-                                System.out.println("Cadena invalida");
-                            } else {
+                                System.out.println("Cadena invalida " + cadena);
+                            }
+                            else {
                                 System.out.println("Cadena valida con " + cadena);
 
                             }
                         } else {
                             System.out.println("Cadena valida con " + cadena);
-
                         }
                         activo = false;
                         break;
