@@ -20,22 +20,17 @@ public class Automata {
         int i = 0;
 
         try {
-            if (cadenaArray.length == 0) {
-                System.out.println("Cadena invalida, no acepto vacios");
-            }
+            // if (cadenaArray.length == 0) {
+            //     System.out.println("Cadena invalida, no acepto vacios");
+            // }
             while (!cadena.isEmpty() && activo) {
                 switch (estado) {
                     case 1:
                         if (Arrays.asList(vocales).contains(cadenaArray[i])) {
                             estado = 2;
-                            System.out.println("Estado 1, voy al estado... " + estado + " con..." + cadenaArray[i]
-                                    + "... posicion: " + i);
                         } else if (Arrays.asList(consonantes).contains(cadenaArray[i])) {
                             estado = 2;
-                            System.out.println("Estado 1, voy al estado... " + estado + " con..." + cadenaArray[i]
-                                    + "... posicion: " + i);
                         } else {
-                            System.out.println("Cadena invalida");
                             activo = false;
                             return false;
                         }
@@ -46,20 +41,13 @@ public class Automata {
                         if (Arrays.asList(consonantes).contains(cadenaArray[i])
                                 && Arrays.asList(vocales).contains(cadenaArray[i - 1])) {
                             estado = 7;
-                            System.out.println("Estado 2 , voy al estado... " + estado + " con..." + cadenaArray[i]
-                                    + "... posicion: " + i);
                         } else if (cadenaArray[i] == '2' || cadenaArray[i] == '6') {
                             estado = 3;
-                            System.out.println("Estado 2 , voy al estado... " + estado + " con..." + cadenaArray[i]
-                                    + "... posicion: " + i);
                         } else if (Arrays.asList(vocales).contains(cadenaArray[i])
                                 && Arrays.asList(consonantes).contains(cadenaArray[i - 1])) {
                             estado = 7;
-                            System.out.println("Estado 2 , voy al estado... " + estado + " con..." + cadenaArray[i]
-                                    + "... posicion: " + i);
                         } else {
                             activo = false;
-                            System.out.println("Cadena invalida");
                             return false;
                         }
                         break;
@@ -68,12 +56,8 @@ public class Automata {
                         i++;
                         if (Arrays.asList(digitos).contains(cadenaArray[i])) {
                             estado = 4;
-                            System.out
-                                    .println("Estoy en el estado 3, voy al estado " + estado + " con..."
-                                            + cadenaArray[i] + "... posicion: " + i);
                         } else {
                             activo = false;
-                            System.out.println("Cadena invalida");
                             return false;
                         }
                         break;
@@ -82,12 +66,8 @@ public class Automata {
                         i++;
                         if (Arrays.asList(digitos).contains(cadenaArray[i])) {
                             estado = 5;
-                            System.out
-                                    .println("Estoy en el estado 4, voy al estado " + estado + " con..."
-                                            + cadenaArray[i] + "... posicion: " + i);
                         } else {
                             activo = false;
-                            System.out.println("Cadena invalida");
                             return false;
                         }
                         break;
@@ -96,44 +76,26 @@ public class Automata {
                         if (Arrays.asList(digitos).contains(cadenaArray[i])) {
                             i++;
                             estado = 6;
-                            System.out
-                                    .println("Estoy en el estado 5, voy al estado " + estado + " con..."
-                                            + cadenaArray[i] + "... posicion: " + i);
 
                             if (cadenaArray[i] == '3' || cadenaArray[i] == '9') {
                                 estado = 5;
 
-                                System.out
-                                        .println("Estoy en el estado 5, voy al estado " + estado + " con..."
-                                                + cadenaArray[i] + "... posicion: " + i);
-
                                 if (Arrays.asList(consonantes).contains(cadenaArray[i + 1])) {
                                     estado = 7;
-                                    System.out
-                                            .println("Estoy en el estado 5, voy al estado " + estado + " con..."
-                                                    + cadenaArray[i + 1] + "... posicion: " + i);
                                 }
 
                                 if (Arrays.asList(vocales).contains(cadenaArray[i + 1])) {
                                     estado = 7;
-                                    System.out
-                                            .println("Estoy en el estado 5, voy al estado " + estado + " con..."
-                                                    + cadenaArray[i + 1] + "... posicion: " + i);
                                 }
                             } else if (Arrays.asList(digitos).contains(cadenaArray[i])) {
 
                                 estado = 5;
-                                System.out
-                                        .println("Estoy en el estado 5, voy al estado " + estado + " con..."
-                                                + cadenaArray[i] + "... posicion: " + i);
                             } else {
                                 activo = false;
-                                System.out.println("Cadena invalida");
-                            return false;
+                                return false;
                             }
                         } else {
                             activo = false;
-                            System.out.println("Cadena invalida");
                             return false;
                         }
                         break;
@@ -142,12 +104,8 @@ public class Automata {
                         i++;
                         if (Arrays.asList(consonantes).contains(cadenaArray[i])) {
                             estado = 7;
-                            System.out
-                                    .println("Estoy en el estado 6, voy al estado " + estado + " con..."
-                                            + cadenaArray[i] + "... posicion: " + i);
                         } else {
                             activo = false;
-                            System.out.println("Cadena invalida aaa");
                             return false;
                         }
 
@@ -157,7 +115,7 @@ public class Automata {
                         if (cadenaArray.length >= 3) {
                             if (Arrays.asList(consonantes).contains(cadenaArray[2])
                                     || Arrays.asList(vocales).contains(cadenaArray[2])) {
-                                System.out.println("Cadena invalida " + cadena);
+
                                 return false;
                             }
                             if (Arrays.asList(vocales).contains(cadenaArray[0])
@@ -166,13 +124,10 @@ public class Automata {
                                 if (i + 2 < cadenaArray.length) {
                                     comparar = cadenaArray[i + 1];
                                     if (comparar.toString().isEmpty()) {
-                                        System.out.println("Cadena invalida " + cadena);
                                         return false;
                                     }
                                 } else {
-                                    System.out.println("Cadena valida con " + cadena + "   " + cadenaArray[i] + "   "
-                                            + cadenaArray[i]);
-                                            return true;
+                                    return true;
                                 }
                             } else if (Arrays.asList(consonantes).contains(cadenaArray[0])
                                     && Arrays.asList(vocales).contains(cadenaArray[i + 1])) {
@@ -180,19 +135,15 @@ public class Automata {
                                 if (i + 2 < cadenaArray.length) {
                                     comparar = cadenaArray[i + 1];
                                     if (comparar.toString().isEmpty()) {
-                                        System.out.println("Cadena invalida " + cadena);
                                         return true;
                                     }
                                 } else {
-                                    System.out.println("Cadena valida con " + cadena + "   " + cadenaArray[i] + "   "
-                                            + cadenaArray[i]);
-                                            return true;
+                                    return true;
                                 }
                             } else {
-                                System.out.println("Cadena invalida " + cadena);
+                                return false;
                             }
                         } else {
-                            System.out.println("Cadena valida con " + cadena);
                             return true;
                         }
                         activo = false;
