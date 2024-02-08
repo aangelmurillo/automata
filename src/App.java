@@ -16,7 +16,7 @@ public class App {
                     String cadena = in.nextLine();
                     Automata auto = new Automata(cadena);
 
-                    auto.analizarCadena();
+                    System.out.println(auto.analizarCadena()); 
 
                     System.out.print("Deseas ingresar otra cadena (s/n)? ");
                     na = in.nextLine().charAt(0);

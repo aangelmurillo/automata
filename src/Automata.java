@@ -15,7 +15,7 @@ public class Automata {
         this.cadena = cadena;
     }
 
-    public void analizarCadena() {
+    public boolean analizarCadena() {
         cadenaArray = cadena.toCharArray();
         int i = 0;
 
@@ -37,6 +37,7 @@ public class Automata {
                         } else {
                             System.out.println("Cadena invalida");
                             activo = false;
+                            return false;
                         }
                         break;
 
@@ -59,6 +60,7 @@ public class Automata {
                         } else {
                             activo = false;
                             System.out.println("Cadena invalida");
+                            return false;
                         }
                         break;
 
@@ -72,6 +74,7 @@ public class Automata {
                         } else {
                             activo = false;
                             System.out.println("Cadena invalida");
+                            return false;
                         }
                         break;
 
@@ -85,6 +88,7 @@ public class Automata {
                         } else {
                             activo = false;
                             System.out.println("Cadena invalida");
+                            return false;
                         }
                         break;
 
@@ -125,10 +129,12 @@ public class Automata {
                             } else {
                                 activo = false;
                                 System.out.println("Cadena invalida");
+                            return false;
                             }
                         } else {
                             activo = false;
                             System.out.println("Cadena invalida");
+                            return false;
                         }
                         break;
 
@@ -142,6 +148,7 @@ public class Automata {
                         } else {
                             activo = false;
                             System.out.println("Cadena invalida aaa");
+                            return false;
                         }
 
                         break;
@@ -151,41 +158,42 @@ public class Automata {
                             if (Arrays.asList(consonantes).contains(cadenaArray[2])
                                     || Arrays.asList(vocales).contains(cadenaArray[2])) {
                                 System.out.println("Cadena invalida " + cadena);
-                                return;
+                                return false;
                             }
                             if (Arrays.asList(vocales).contains(cadenaArray[0])
                                     && Arrays.asList(consonantes).contains(cadenaArray[i + 1])) {
                                 Character comparar;
                                 if (i + 2 < cadenaArray.length) {
                                     comparar = cadenaArray[i + 1];
-                                    if (!comparar.toString().isEmpty()) {
+                                    if (comparar.toString().isEmpty()) {
                                         System.out.println("Cadena invalida " + cadena);
-                                        return;
+                                        return false;
                                     }
                                 } else {
                                     System.out.println("Cadena valida con " + cadena + "   " + cadenaArray[i] + "   "
                                             + cadenaArray[i]);
+                                            return true;
                                 }
-                                return;
                             } else if (Arrays.asList(consonantes).contains(cadenaArray[0])
                                     && Arrays.asList(vocales).contains(cadenaArray[i + 1])) {
                                 Character comparar;
                                 if (i + 2 < cadenaArray.length) {
                                     comparar = cadenaArray[i + 1];
-                                    if (!comparar.toString().isEmpty()) {
+                                    if (comparar.toString().isEmpty()) {
                                         System.out.println("Cadena invalida " + cadena);
-                                        return;
+                                        return true;
                                     }
                                 } else {
                                     System.out.println("Cadena valida con " + cadena + "   " + cadenaArray[i] + "   "
                                             + cadenaArray[i]);
+                                            return true;
                                 }
-                                return;
                             } else {
                                 System.out.println("Cadena invalida " + cadena);
                             }
                         } else {
                             System.out.println("Cadena valida con " + cadena);
+                            return true;
                         }
                         activo = false;
                         break;
@@ -194,5 +202,6 @@ public class Automata {
         } catch (Exception e) {
             System.out.println("Cadena invalida " + e.getMessage() + "Personalizado");
         }
+        return false;
     }
 }
