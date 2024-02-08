@@ -167,7 +167,10 @@ public class Automata {
                                 return;
                             } else {
                                 System.out.println("Cadena invalida " + cadena);
-                            }
+                            } 
+                        }else {
+                            System.out.println("Cadena valida con " + cadena);
+
                         }
                         activo = false;
                         break;
