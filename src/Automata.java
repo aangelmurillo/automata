@@ -151,7 +151,7 @@ public class Automata {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Cadena invalida " + e.getMessage() + "Personalizado");
+            return false;
         }
         return false;
     }
